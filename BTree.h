@@ -5,8 +5,12 @@
 // Node Struct
 ///////////////////
 struct Node {
-    Node* nodes;  // array of child nodes
+    Node* nodes;  // array of child nodes (nullptr if leaf)
     int* keys;  // array of keys for the current node
+    bool leaf;  // true if the node is a leaf
+
+    // default constructor
+    Node() : nodes(nullptr), keys(nullptr), leaf(false) {}
 };
 
 ///////////////////
@@ -14,6 +18,8 @@ struct Node {
 ///////////////////
 class BTree {
 private:
+    Node* root;  // root node of the tree
+    int depth;  // depth of the tree
 
 public:
 };
