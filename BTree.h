@@ -22,6 +22,18 @@ private:
     int depth;  // depth of the tree
 
 public:
+    // default constructor
+    BTree();
+    // copy constructor
+    BTree(BTree& tree);
+    // move constructor
+    BTree(BTree&& tree);
+    // copy assignment operator
+    BTree& operator=(BTree& tree);
+    // move assignment operator
+    BTree& operator=(BTree&& tree);
+    // destructor
+    ~BTree();
 };
 
 #endif
