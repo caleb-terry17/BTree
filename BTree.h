@@ -23,6 +23,7 @@ class BTree {
 private:
     Node* root;  // root node of the tree
     int depth;  // depth of the tree
+    int t;  // load value of tree
 
     // private member functions
     // clear: recursive function that goes to its child and then deletes its nodes
@@ -30,7 +31,7 @@ private:
 
 public:
     // default constructor
-    BTree();
+    BTree(int t = 2);
     // copy constructor
     BTree(BTree& tree);
     // move constructor
@@ -41,6 +42,10 @@ public:
     BTree& operator=(BTree&& tree);
     // destructor
     ~BTree();
+
+    // public member functions
+    // insert: inserts a key into the tree in the correct spot
+    void insert(int key);
 };
 
 #endif

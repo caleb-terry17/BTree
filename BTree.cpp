@@ -5,7 +5,7 @@
 ///////////////////
 // default constructor
 // creates an empty node at the root of the tree
-BTree::BTree() {
+BTree::BTree(int t) : t(t) {
     depth = 0;  // currently no nodes in the tree
     root = new Node();
 }
@@ -24,6 +24,11 @@ BTree& BTree::operator=(BTree&& tree) {}
 // destructor
 BTree::~BTree() {
     clear(root);
+}
+
+// insert: inserts a key into the tree in the correct spot
+void insert(int key) {
+    
 }
 
 ///////////////////
