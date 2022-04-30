@@ -1,16 +1,19 @@
 #ifndef BTREE_H
 #define BTREE_H
 
+#include <vector>
+
 ///////////////////
 // Node Struct
 ///////////////////
 struct Node {
-    Node* nodes;  // array of child nodes (nullptr if leaf)
-    int* keys;  // array of keys for the current node
+    // NOTE: there will always be one more child node than there are keys
+    std::vector<Node*> children;  // array of child nodes (nullptr if leaf)
+    std::vector<int> keys;  // array of keys for the current node
     bool leaf;  // true if the node is a leaf
 
     // default constructor
-    Node() : nodes(nullptr), keys(nullptr), leaf(false) {}
+    Node() : children(std::vector<Node*>()), keys(std::vector<int>()), leaf(false) {}
 };
 
 ///////////////////
@@ -20,6 +23,10 @@ class BTree {
 private:
     Node* root;  // root node of the tree
     int depth;  // depth of the tree
+
+    // private member functions
+    // clear: recursive function that goes to its child and then deletes its nodes
+    void clear(Node* node);
 
 public:
     // default constructor
