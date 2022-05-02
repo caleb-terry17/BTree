@@ -2,6 +2,7 @@
 #define BTREE_H
 
 #include <vector>
+#include <iostream>
 
 ///////////////////
 // Node Struct
@@ -44,8 +45,14 @@ public:
     ~BTree();
 
     // public member functions
+    // getRoot: returns a reference to the root node
+    const Node* getRoot() const;
     // insert: inserts a key into the tree in the correct spot
     void insert(int key);
 };
+
+// helper functions
+// ostream operator
+std::ostream& operator<<(std::ostream& out, const BTree& tree);
 
 #endif
